@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import CommentList from "./CommentList";
 
 class App extends Component {
   state = { 
@@ -38,10 +39,6 @@ class App extends Component {
 
   render() { 
 
-    let commentsList = this.state.comments.map(comment => {
-       return <li>{comment.name}: {comment.message}</li>
-    })
-
     return ( 
       <div className="App">
         <h2>Say something</h2>
@@ -59,7 +56,7 @@ class App extends Component {
           <button>Comment</button>
         </form>
 
-        <ul>{commentsList}</ul>
+        <CommentList comments={this.state.comments} />
       </div>
      );
   }
