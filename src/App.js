@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.scss';
 import CommentList from "./CommentList";
 
+import AdminMode from "./AdminMode";
+
 class App extends Component {
   state = { 
     name: "",
@@ -41,6 +43,9 @@ class App extends Component {
 
     return ( 
       <div className="App container">
+
+        <AdminMode />
+
         <h2 className="title is-2">Ajouter un commentaire</h2>
         <form onSubmit={this.handleSubmit} >
 
