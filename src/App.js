@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import CommentList from "./CommentList";
 
 class App extends Component {
@@ -40,8 +40,8 @@ class App extends Component {
   render() { 
 
     return ( 
-      <div className="App">
-        <h2>Say something</h2>
+      <div className="App container">
+        <h2 className="title is-2">Ajouter un commentaire</h2>
         <form onSubmit={this.handleSubmit} >
 
           <input type="text" placeholder="Your name"
@@ -53,7 +53,7 @@ class App extends Component {
            value={this.state.comment}
            cols="30" rows="10"></textarea>
 
-          <button>Comment</button>
+          <button className="button is-primary">Comment</button>
         </form>
 
         <CommentList comments={this.state.comments} />
