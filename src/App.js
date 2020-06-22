@@ -9,8 +9,8 @@ class App extends Component {
     name: "",
     comment: "",
     comments: [  
-      { name: "JB", message: "Youhou la famille!"},
-      { name: "Kirikou", message: "Je ne suis pas grand mais je suis vaillant"}
+      { id: 1,name: "JB", message: "Youhou la famille!"},
+      { id: 2, name: "Kirikou", message: "Je ne suis pas grand mais je suis vaillant"}
     ]
    }
 

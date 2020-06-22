@@ -3,10 +3,8 @@ import React, { Component } from 'react';
 class CommentList extends Component {
     render() { 
         let commentsList = this.props.comments.map(comment => {
-            return <li>{comment.name}: {comment.message}</li>
+            return <li key={comment.id} >{comment.name}: {comment.message}</li>
          })
-
-        let isVisible = true;
 
         return (
             <ul className="comment-list">

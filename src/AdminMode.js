@@ -5,11 +5,17 @@ class AdminMode extends Component {
         isAdmin: false
      }
 
+     changeMode = () => { 
+        this.setState({ 
+            isAdmin: !this.state.isAdmin
+        })
+     }
+
     render() { 
 
         let button = this.state.isAdmin ? 
-        <button className="button is-danger">Désactiver le mode d'administration</button>
-        : <button className="button is-info">Activer le mode d'administration</button>;
+        <button className="button is-danger" onClick={this.changeMode}>Désactiver le mode d'administration</button>
+        : <button className="button is-info" onClick={this.changeMode}>Activer le mode d'administration</button>;
 
         let classMessage = this.state.isAdmin ? "message is-danger" : "message is-info";
        
