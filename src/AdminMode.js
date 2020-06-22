@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 
 class AdminMode extends Component {
     state = { 
-        isAdmin: true
+        isAdmin: false
      }
+
     render() { 
-        let button;
 
-        if(this.state.isAdmin) { 
-            button = <button className="button is-danger">Désactiver le mode d'administration</button>
+        let button = this.state.isAdmin ? 
+        <button className="button is-danger">Désactiver le mode d'administration</button>
+        : <button className="button is-info">Activer le mode d'administration</button>;
 
-        } 
-        else { 
-            button = <button className="button is-info">Activer le mode d'administration</button>
-         } 
-        
+        let classMessage = this.state.isAdmin ? "message is-danger" : "message is-info";
+       
         return (         
-        <article className="message is-info">
+        <article className={classMessage}>
             <div className="message-body">
                 {button}
             </div>
