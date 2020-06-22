@@ -3,39 +3,26 @@ import './App.scss';
 import CommentList from "./CommentList";
 
 import AdminMode from "./AdminMode";
+import CommentForm from "./CommentForm";
+
+import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
   state = { 
-    name: "",
-    comment: "",
     comments: [  
       { id: 1,name: "JB", message: "Youhou la famille!"},
       { id: 2, name: "Kirikou", message: "Je ne suis pas grand mais je suis vaillant"}
     ]
    }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  addComment = (name, message) => {
     let newComment = {
-      name: this.state.name,
-      message: this.state.comment
+      id: uuidv4(),
+      name: name,
+      message: message
     }
-
     this.setState({
       comments: [...this.state.comments,newComment]
-    })
-  }
-
-
-  handleChangeName = (e) => {
-    this.setState({
-      name:  e.target.value
-    })
-  }
-
-  handleChangeComment = (e) => {
-    this.setState({
-      comment:  e.target.value
     })
   }
 
@@ -46,20 +33,7 @@ class App extends Component {
 
         <AdminMode />
 
-        <h2 className="title is-2">Ajouter un commentaire</h2>
-        <form onSubmit={this.handleSubmit} >
-
-          <input type="text" placeholder="Your name"
-          onChange={this.handleChangeName} 
-          value={this.state.name} />
-
-          <textarea placeholder="Your comment"
-          onChange={this.handleChangeComment}
-           value={this.state.comment}
-           cols="30" rows="10"></textarea>
-
-          <button className="button is-primary">Comment</button>
-        </form>
+        <CommentForm addComment={this.addComment} />
 
         <CommentList comments={this.state.comments} />
       </div>
